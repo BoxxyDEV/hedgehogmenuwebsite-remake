@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/data/style.css">
+    <link rel="shortcut icon" href="/data/images/favicon.png" type="image/x-icon">
+    <title>Hedgehog Menu</title>
+</head>
+
+<body>
+    <div class="headwithmarquee">
+            <img class="title" width="32" height="32" src="/data/images/favicon.png" alt="">
+            <h1 class="title">Hedgehog Menu</h1>
+            <marquee id="outofdate_browser_marquee">You're browser may be alittle out of date or You're not on <a  href="https://chrome.google.com/">Google Chrome</a>, <a href="https://www.mozilla.org/en-US/firefox/browsers/">Mozilla Firefox</a>, or other browsers based on them. You should check out the ultra cool <a href="/old/">Site Designed for Older Browsers</a></marquee>
+    </div>
+
+    <div class="content">
+        <h3><a style="color: white;" href="/gtav/">Hedgehog Menu</a></h3>
+        <h5>GTA V on Xbox 360 JTAG/RGH and PS3 HEN/CFW</h5>
+        <img src="/data/images/Hedgehog360.png" alt="" width="350">
+    </div>
+    <div id="sidebar_main" class="sociallinks">
+                
+        <h3>Links</h3>
+        <p><a href="http://boxu.ga">Boxu.ga</a></p>
+        <p><a href="https://youtube.com/boxuga">YouTube</a></p>
+        <h3>Music</h3>
+        <p><a href="#" id="status" onclick="onbtnmusicplaypause()"></a></p>
+        <p><a href="#" onclick="nextsong()">Next</a></p>
+        <h4>Information</h4>
+        <p><b>Title</b></p>
+        <p><a id="titletrack" href=""></a></p>
+        <p><b>Artist</b></p>
+        <p> <a  id="artisttrack" href=""></a></p>
+        <audio id="music_player" onended="nextsong()" src="https://archive.org/download/elevatia/Bossfight%20-%20Elevatia.mp3" autoplay></audio>
+    </div>
+    
+</body>
+<script type="text/javascript">    
+    var oodbm = document.getElementById('outofdate_browser_marquee'); // sets up the out of date marquee
+    var sidebr = document.getElementById('sidebar_main'); // the side bar
+    var musicplayer = document.getElementById("music_player");
+    var musicstat = document.getElementById('status');
+    var titletrack = document.getElementById('titletrack');
+    var artisttrack = document.getElementById('artisttrack');
+    var musictrack;
+    const startmusictime = setTimeout(musicplay, 500);
+    const setplaypause = setInterval(musicplaypause, 500)
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({title: 'Hedgehog Menu', artist: 'Subcribe to Boxuga'});
+}
+    function musicplay() {
+        musictrack = 1;
+        musicplayer.play()
+        nextsong()
+        musicplayer.volume = 0.04;
+    }
+    function musicplaypause() {
+        if (musicplayer.paused) {
+            musicstat.textContent = "Play"
+        }
+        else {
+            musicstat.textContent = "Pause"
+        }
+        navigator.mediaSession.metadata.title = titletrack.textContent
+        navigator.mediaSession.metadata.artist = artisttrack.textContent + " - Playing from Hedgehog.boxu.ga"
+    }
+
+    function onbtnmusicplaypause() {
+        if (musicplayer.paused) {
+            musicplayer.play()
+        }
+        else {
+            musicplayer.pause()
+        }
+        
+    }
+
+
+    function nextsong() {
+        if (musictrack == 1) {
+            musicplayer.src = "https://archive.org/download/fallingapart/FallingApart-Zebrahead.mp3" // Falling Apart by Zebrahead
+            titletrack.textContent = "Falling Apart"
+            titletrack.href = "https://youtu.be/8Nv04V5_MwQ"
+            artisttrack.textContent = "zebrahead"
+            artisttrack.href = "https://www.youtube.com/channel/UCh5aVjqcfUw-U61gIpIbxoQ"
+            musictrack = 2
+        }
+        else if (musictrack == 2) {
+            musicplayer.src = "https://archive.org/download/KrewellaOneMinute/Krewella%20-%20One%20Minute.mp3" // One Minute by Krewella
+            titletrack.textContent = "One Minute"
+            titletrack.href = "https://youtu.be/DC8SbBB-bgA"
+            artisttrack.textContent = "Krewella"
+            artisttrack.href = "https://www.youtube.com/channel/UCDY_0WzkHyj0A1ev6RTql1Q"
+            musictrack = 3
+        }
+        else if (musictrack == 3) {
+            musicplayer.src = "https://archive.org/download/PinkKoeks/SpagHeddy-PinkKoeks.mp3" // Pink Koeks by Spag Heddy (Popular MMOs Intro Song)
+            titletrack.textContent = "Pink Koeks (Popular MMOs Intro)"
+            titletrack.href = "https://youtu.be/QLbe5FMTmec"
+            artisttrack.textContent = "Spag Heddy"
+            artisttrack.href = "https://www.youtube.com/channel/UCIApgXB7B1tPVdp4P6gzZrA"
+            musictrack = 4
+        }
+        else if (musictrack == 4) { // Awesome to the Max By Ephixa
+            musicplayer.src = "https://archive.org/download/009Reunion/Ephixa%20-%20Monstercat%20009%20-%20Reunion%20-%204%20Awesome%20to%20the%20Max.mp3"
+            titletrack.textContent = "Awesome to the Max"
+            titletrack.href = "https://youtu.be/FTUVjaZ3xAs"
+            artisttrack.textContent = "Ephixa"
+            artisttrack.href = "https://www.youtube.com/channel/UCGfBXs27YPr0U8CFim-RefQ"
+            musictrack = 5
+        }
+        else if  (musictrack == 5) { // Worth the Lie by Muzzy, Koven, & Feint
+            musicplayer.src = "https://archive.org/download/MuzzyKovenFeintWorthTheLie/Muzzy%20Koven%20Feint%20%20-%20Worth%20The%20Lie.mp4"
+            titletrack.textContent = "Worth The Lie"
+            titletrack.href = "https://youtu.be/die0ZEGXHJw"
+            artisttrack.textContent = "MUZZ, Koven, Feint"
+            artisttrack.href = "https://www.youtube.com/channel/UCNefTmJG6aqv2cWJA3dzdbQ"
+            musictrack = 6
+        }
+        else if (musictrack == 6) {
+            musicplayer.src = "https://archive.org/download/05Voices/05%20Voices.mp3"
+            titletrack.textContent = "Voices (FazeModz Intro)"
+            titletrack.href = "https://youtu.be/i9e7O7OUglk"
+            artisttrack.textContent = "20syl, Rita J"
+            artisttrack.href = "https://www.youtube.com/channel/UCKQCaDW4LqL3l1ai8yisvUw"
+            musictrack = 7
+        }
+        else if (musictrack == 7) {
+            musicplayer.src = "https://archive.org/download/TheChainGangOf1974Sleepwalking/The%20Chain%20Gang%20Of%201974%20-%20Sleepwalking%20.mp3"
+            titletrack.textContent = "Sleepwalking (JakeModz89 Intro)"
+            titletrack.href = "https://youtu.be/rprf7LEraU4"
+            artisttrack.textContent = "The Chain Gang Of 1974"
+            artisttrack.href = "https://www.youtube.com/channel/UC74Du1qoylI2cujjebd2E4Q"
+            musictrack = 8
+        }
+        else if (musictrack == 8) {
+            musicplayer.src = "https://archive.org/download/lil-mosey-blueberry-faygo-dir.-by-cole-bennett/Lil%20Mosey%20-%20Blueberry%20Faygo%20%28Dir.%20by%20ColeBennett%29.mp3"
+            titletrack.textContent = "Blueberry Faygo (DreSweatz Intro)"
+            titletrack.href = "https://youtu.be/V_jHc_n0p9c"
+            artisttrack.textContent = "Lil Mosey"
+            artisttrack.href = "https://www.youtube.com/channel/UCZ3FuC9xpPnSErHJqMg5_EQ"
+            musictrack = 9
+        }
+        else if (musictrack == 9) {
+            musicplayer.src = "https://archive.org/download/sonicadventure2originalsoundtrack20thanniversaryedition/Sonic%20Adventure%202%20Original%20Soundtrack%2020th%20Anniversary%20Edition/12%20Won%27t%20Stop%2C%20Just%20Go%21%20...for%20Green%20Forest.mp3"
+            titletrack.textContent = "Won't Stop, Just Go! (Green Forest)"
+            artisttrack.textContent = "Sonic Adventure 2"
+            musictrack = 10
+        }
+        else if (musictrack == 10) {
+            musicplayer.src = "https://archive.org/download/FilthyFrankCollection/TERIYAKI%20GOD.mp4"
+            titletrack.textContent = "TERIYAKI GOD"
+            titletrack.href = "https://youtu.be/9HFDW0x10-Q"
+            artisttrack.textContent = "Filthy Frank"
+            artisttrack.href = "https://www.youtube.com/TVFilthyFrank"
+            musictrack = 1
+        }
+    }
+    if (navigator.userAgent.indexOf('Chrome') != -1) // if a older verison of IE the javascript wont remove the marquee
+    {
+        oodbm.parentNode.removeChild(oodbm);
+    }
+    if (navigator.userAgent.indexOf('Firefox') != -1) {
+        oodbm.parentNode.removeChild(oodbm);
+    }
+    if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Macintosh') != -1){
+        oodbm.parentNode.removeChild(oodbm);
+    }
+
+    if(/Android|webOS|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        oodbm.parentNode.removeChild(oodbm);
+        sidebr.style.zIndex = "0"
+        sidebr.style.position = "relative"
+        sidebr.style.marginTop = "1px"
+    }
+
+    if (window.innerWidth <= 674 && /Cr OS|Linux x86|Windows|Macintosh/i.test(navigator.userAgent)) {
+        sidebr.style.zIndex = "0"
+        sidebr.style.position = "relative"
+        sidebr.style.marginTop = "1px"
+    }
+    else {
+        sidebr.style.marginLeft = "5px"
+    }
+    
+</script>
+</html>

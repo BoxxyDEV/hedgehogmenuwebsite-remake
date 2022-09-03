@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page</title>
+</head>
+<style>
+    body {
+        background-color: #2C2F33;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    a {
+        color: black;
+        text-decoration: none;
+        background-color: white;
+        border-radius: 25px;
+        padding: 10px 10px 10px 10px;
+        overflow: hidden;
+    }
+
+    a:hover {
+        background-color: lime;
+    }
+
+    .bounce {
+        font-size: xx-large;
+        z-index: 1;
+        width: 98vw;
+        color: #585d63;
+        height: 97vh;
+    }
+
+    .main_content {
+        top: 0px;
+        position: fixed;
+        z-index: 100;
+    }
+</style>
+<body>
+
+    <marquee scrollamount="35" class="bounce" direction="down"behavior="alternate">
+        <marquee scrollamount="30" behavior="alternate">
+          404 Not Found
+        </marquee>
+      </marquee>
+      <div class="main_content">
+        <h3 id="subtext">Sorry. the page you we're looking for doesnt exist.</h3>
+        <a href="/">Go Back to Hedgehog Menu</a>
+        </div>
+</body>
+<script>
+</script>
+</html>
